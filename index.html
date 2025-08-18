@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Lumina customer satisfaction survey</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="lumina.css">
+    </head>
+    <body>
+        <main>
+<button type="button" id="open-form-btn">Customer satisfaction survey</button>
+        <form name="lumina-survey" method="post" data-netlify="true">
+     <input type="hidden" name="form-name" value="lumina-survey">       
+<fieldset id="your-info">
+    <legend>Your opinion matters to us</legend>
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name" name="name" required>
+    <label for="email">Email</label>
+    <input type="email" id="email" placeholder="Enter your email" name="email" required>
+    <label for="age">Age</label>
+    <input type="number" min="18" max="120" id="age" name="age" required>
+</fieldset>
+<fieldset id="used-products">
+    <label for="used-products">Which of our products did you use?</label>
+        <div class="dropdown" id="used-products-dropdown">
+            <div class="dropdown-content">
+                <label>
+                    <input type="checkbox" name="used-products" value="shampoo-conditioner">Lumina shampoo and conditioner
+                </label>
+                <label>
+                    <input type="checkbox" name="used-products" value="face-mask">Lumina face mask
+                </label>
+                <label>
+                    <input type="checkbox" name="used-products" value="eye-cream">Lumina eye cream
+                </label>
+                <label>
+                    <input type="checkbox" name="used-products" value="daily-moisturizer">Lumina daily moisturizer
+                </label>
+                <label>
+                    <input type="checkbox" name="used-products" value="nighttime-moisturizer">Lumina nighttime moisturizer
+                </label>
+                <label>
+                    <input type="checkbox" name="used-products" value="facial-cleanser">Lumina facial cleanser
+                </label>
+            </div>
+        </div>
+</fieldset>
+<fieldset id="friend-recommend">
+    <label for="recommend">Would you recommend Lumina to a friend?</label>
+    <select id="recommend" name="recommend" required>
+        <option value="" disabled selected>Select your answer</option>
+        <option value="definitely">Deifinitely</option>
+        <option value="maybe">Maybe</option>
+        <option value="no">No</option>
+    </select>
+</fieldset>
+<fieldset id="favorite-product">
+    <label for="favorite">Which one is your favorite Lumina product?</label>
+    <select id="favorite" name="favorite" required>
+        <option value="" disabled selected>Select a product</option>
+        <option value="shampoo-conditioner">Lumina shampoo and conditioner</option>
+        <option value="face-mask">Lumina face mask</option>
+        <option value="eye-cream">Lumina eye cream</option>
+        <option value="daily-moisturizer">Lumina daily moisturizer</option>
+        <option value="nighttime-moisturizer">Lumina nighttime moisturizer</option>
+        <option value="facial-cleanser">Lumina facial cleanser</option>
+    </select>
+</fieldset>
+<fieldset id="future-develop">
+    <label for="develop">What product would you like to see us develop in the future?</label>
+    <textarea id="develop" cols="88" rows="5" name="develop"></textarea>
+</fieldset>
+<fieldset>
+    <label for="comments">Any comments or suggestions?</label>
+    <textarea id="comments" cols="88" rows="8" name="comments"></textarea>
+</fieldset>
+<button type="submit">Submit</button>
+        </form>
+        </main>
+        <script src="lumina.js"></script>
+    </body>
+</html>
