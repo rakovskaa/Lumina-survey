@@ -12,9 +12,7 @@ body.style.backgroundPosition = 'center';
 surveyBtn.style.visibility = "hidden";
 });
 
-form.addEventListener("submit", (e) => {
-e.preventDefault();
-
+form.addEventListener("submit", () => {
 const checkboxes = document.querySelectorAll('input[name="used-products"]');
 const oneChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
 
@@ -39,3 +37,11 @@ body.style.backgroundRepeat = 'repeat';
 body.style.backgroundPosition = 'center';
 }
 );
+
+const closeBtn = document.getElementById("close-form-btn");
+
+ closeBtn.addEventListener("click", () => {
+ form.style.display = "none";
+ surveyBtn.style.visibility = "visible";   
+ body.style.backgroundImage = 'url("lumina-bg.jpg")';
+ })
