@@ -86,7 +86,7 @@ legend {
     background-color:green;
     opacity: 0.8;
     width: 99%;
-    height: 40px;
+    height: 50px;
     border-radius: 5px;
     font-style: oblique;
 }
@@ -177,9 +177,9 @@ margin: auto;
 @media (max-width: 678px) {
 
 form{
-    width: 95%;
+    width: 90%;
     padding: 15px;
-    min-height: 90vh;
+    max-height: 90vh;
 }
 
 legend {
@@ -189,6 +189,7 @@ legend {
 
 select {
 font-size: 1em;
+color: black;
 }
 
 .submit
