@@ -78,7 +78,7 @@ fieldset {
 
 
 legend {
-    padding: 10px 0 0 5px;
+    padding: 15px 0 0 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.6em;
     text-align: center;
@@ -180,10 +180,12 @@ form{
     width: 90%;
     padding: 15px;
     max-height: 90vh;
+    transform: translateY(-15px);
 }
 
 legend {
-    font-size: 1.1em;
+    font-size: 1.2em;
+    padding: 15px 0 0 0;
 }
 
 
@@ -236,5 +238,51 @@ margin: 0;
 #open-form-btn {
 width: 50%;
 height: 100px;    
+}
+
+.close-btn {
+position: absolute;
+top: 20px;
+right: 25px;
+color: black;
+background: none;
+cursor: pointer;    
+width: 35px;
+height: 35px;
+border: none;
+font-size: 2rem;
+z-index: 2000;
+text-align: center;
+line-height: 35px;
+}
+
+/* Entire scrollbar */
+form::-webkit-scrollbar {
+    width: 12px;  /* width of the scrollbar */
+}
+
+/* Scrollbar track (the gutter) */
+form::-webkit-scrollbar-track {
+    background:lightblue;  /* color of the track */;
+    border-radius: 6px;
+}
+
+/* Scrollbar thumb (the draggable part) */
+form::-webkit-scrollbar-thumb {
+    background-color: lightseagreen;  /* color of the thumb */
+    border-radius: 6px;       /* rounded edges */
+    border: 3px solid lightseagreen; /* creates padding around thumb */
+}
+
+/* Scrollbar thumb on hover */
+form::-webkit-scrollbar-thumb:hover {
+    background-color: lightseagreen;
+}
+}
+@media (max-width: 400px) {
+
+.close-btn {
+top: 10px;
+right: 15px;    
 }
 }
