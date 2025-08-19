@@ -21,7 +21,7 @@ form{
     border: none;
     padding: 20px;
     border-radius: 5px;
-    transform: translateY(-45px);
+    transform: translateY(-95px);
     display: none;
     overflow-y: auto;
     overflow-x: hidden;
@@ -32,7 +32,7 @@ form{
 .close-btn {
 position: absolute;
 top: 20px;
-right: 20px;
+right: 25px;
 color: black;
 background: none;
 cursor: pointer;    
@@ -78,7 +78,7 @@ fieldset {
 
 
 legend {
-    padding: 5px 0 5px 5px;
+    padding: 10px 0 0 5px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 1.6em;
     text-align: center;
@@ -235,6 +235,6 @@ margin: 0;
 
 #open-form-btn {
 width: 50%;
-height: 80px;    
+height: 100px;    
 }
 }
