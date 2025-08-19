@@ -9,10 +9,8 @@
     <body>
         <main>
 <button type="button" id="open-form-btn">Customer satisfaction survey</button>
-        <form name="lumina-survey" method="post" data-netlify="true" action="/thank-you.html">
-        <p style="display:none;">
-    <label>Don’t fill this out if you’re human: <input name="bot-field"></label>
-  </p>    
+        <form name="lumina-survey" method="post" data-netlify="true">
+     <button type="button" id="close-form-btn" class="close-btn">&times;</button>
      <input type="hidden" name="form-name" value="lumina-survey">       
 <fieldset id="your-info">
     <legend>Your opinion matters to us</legend>
@@ -71,13 +69,13 @@
 </fieldset>
 <fieldset id="future-develop">
     <label for="develop">What product would you like to see us develop in the future?</label>
-    <textarea id="develop" cols="88" rows="5" name="develop"></textarea>
+    <textarea id="develop" rows="5" name="develop"></textarea>
 </fieldset>
 <fieldset>
     <label for="comments">Any comments or suggestions?</label>
-    <textarea id="comments" cols="88" rows="8" name="comments"></textarea>
+    <textarea id="comments" rows="8" name="comments"></textarea>
 </fieldset>
-<button type="submit">Submit</button>
+<button class="submit" type="submit">Submit</button>
         </form>
         </main>
         <script src="lumina.js"></script>
