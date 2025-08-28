@@ -31,3 +31,12 @@ const closeBtn = document.getElementById("close-form-btn");
  surveyBtn.style.visibility = "visible";   
  body.style.backgroundImage = 'url("lumina-bg.jpg")';
  })
+
+ const navBtn = document.querySelectorAll(".header");
+ navBtn.forEach((navBtn) => {
+ navBtn.addEventListener("click", () => {
+ const hiddenText = navBtn.nextElementSibling;
+ hiddenText.classList.toggle("show");    
+})
+ });
+ 
