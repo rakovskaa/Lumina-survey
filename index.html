@@ -28,7 +28,16 @@
          <button class="header">Products</button>   
          </div>       
           <div class="hidden">
-            <button class="header">Cart</button>
+            <button class="header" id="cart-btn">Cart</button>
+         <div id="cart-container" class="hidden-text">
+            <button class="clear-cart-btn" id="clear-cart-btn">Clear Cart</button>
+        <div id="products-container" class="products-container"></div> 
+        <p>Total number of items: <span class="total-items">0</span></p>
+        <p>Subtotal: <span class="subtotal">$0</span></p>
+        <p>Taxes: <span class="taxes">$0</span></p>
+        <p>Total: <span class="total">$0</span></p>
+        </div>
+        <div id="products-card-container"></div>
           </div>
            <div class="hidden">   
             <button class="header">Contact</button>
@@ -112,5 +121,6 @@
         <script src="lumina.js"></script>
     </body>
 </html>
+
 
 
