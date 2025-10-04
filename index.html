@@ -11,40 +11,43 @@
             <header class="nav">
             <div class="hidden">
               <button class="header">About</button>
-             <p class="hidden-text">Lumina was founded in 2008 by two sisters, 
+             <p class="hidden-text about"><span>Lumina was founded in 2008 by two sisters, 
          Ella and Martha Ford who had a passion for healthy living. 
         Together they set out from their hometown of Rochester NY to 
-        develop a line of affordable and wholesome skincare products.</p>
+        develop a line of affordable and wholesome skincare products.</span></p>
         </div>
         <div class="hidden">
-            <button class="header">Lumina Pledge</button>
-            <p class="hidden-text">At Lumina we strive to source fair trade,
-        pesticide and GMO free ingredients which we blend in our cruelty 
-        free laboratories in USA. By supporting our brand you are a part 
-        of a better tomorrow.   
-            </p> 
-         </div>
-         <div class="hidden">
          <button class="header">Products</button>   
-         </div>       
+          <div class="hidden-text" id="products-card-container"></div>
+          </div>
           <div class="hidden">
             <button class="header" id="cart-btn">Cart</button>
          <div id="cart-container" class="hidden-text">
             <button class="clear-cart-btn" id="clear-cart-btn">Clear Cart</button>
-        <div id="products-container" class="products-container"></div> 
-        <p>Total number of items: <span class="total-items">0</span></p>
-        <p>Subtotal: <span class="subtotal">$0</span></p>
-        <p>Taxes: <span class="taxes">$0</span></p>
-        <p>Total: <span class="total">$0</span></p>
-        </div>
-        <div id="products-card-container"></div>
-          </div>
-           <div class="hidden">   
+        <div id="products-container" class="products-container"></div>
+          <p class="highlight">Number of items: <span class="total-items">0</span></p>
+          <p class="highlight">Subtotal: <span class="subtotal">$0</span></p>
+          <p class="highlight">Taxes: <span class="taxes">$0</span></p>
+          <p class="highlight">Total: <span class="total">$0</span></p>
+       <button class="clear-cart-btn" id="check-out-btn">Check Out</button>
+       </div>
+       </div>
+        <div class="hidden">
+            <button class="header">Lumina Pledge</button>
+            <p class="hidden-text about"><span>At Lumina we strive to source fair trade,
+        pesticide and GMO free ingredients which we blend in our cruelty 
+        free laboratories in USA. By supporting our brand you are a part 
+        of a better tomorrow.</span>   
+            </p> 
+         </div>    
+         <div class="hidden">   
             <button class="header">Contact</button>
-            <ul class="contact hidden-text">
+            <ul class="contact hidden-text about">
+                <span>
               <li>lumina-customer-service@attn.com</li>
               <li>1-800-555-3232</li>
               <li>PO Box 178321 Wilmington, DE 19803</li>
+              </span>
             </ul>
         </div>
             </header>              
@@ -90,7 +93,7 @@
     <label for="recommend">Would you recommend Lumina to a friend?</label>
     <select id="recommend" name="recommend" required>
         <option value="" disabled selected>Select your answer</option>
-        <option value="definitely">Deifinitely</option>
+        <option value="definitely">Definitely</option>
         <option value="maybe">Maybe</option>
         <option value="no">No</option>
     </select>
@@ -121,6 +124,7 @@
         <script src="lumina.js"></script>
     </body>
 </html>
+
 
 
 
