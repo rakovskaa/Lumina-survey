@@ -229,10 +229,83 @@ updateCartDOM() {
 // Create cart instance
 const cart = new ShoppingCart();
 
+/*const mobileQuery = window.matchMedia("(max-width: 480px)");
+const tabletQuery = window.matchMedia("(max-width: 1024px)");
+const tabletPortraitQuery = window.matchMedia("(max-width: 666px)");*/
+
+const largePhoneQuery = window.matchMedia("(max-width: 600px)");
+
+function showProductImage (product, button) {
+  const overlay = document.createElement("div");
+  overlay.className = "product-overlay";
+
+  const imgContainer = document.createElement("div");
+  imgContainer.className = "product-popup";
+
+  const img = document.createElement("img");
+  img.src = `${product.name.toLowerCase().replace(/ /g, "-")}.jpg`;
+  img.alt = product.name;
+
+  const message = document.createElement("p");
+  message.textContent = "Added to cart!";
+
+  imgContainer.appendChild(img);
+  imgContainer.appendChild(message);
+  overlay.appendChild(imgContainer);
+  document.body.appendChild(overlay);
+
+  setTimeout(()=> {
+    overlay.style.opacity = "0";
+    setTimeout(()=> 
+      overlay.remove(), 300);
+    }, 2000);
+}
+
+// Store all hover images and descriptions for resize handling
+const allHoverImages = [];
+const allHoverDescriptions = [];
+
+function setupHoverListeners(card, img, text) {
+  const handleMouseEnter = () => {
+      console.log('HOVER ENTER - Width:', window.innerWidth);
+      console.log('Image:', img);
+      console.log('Text:', text);
+      img.style.display = "block";
+      if (text) {
+        text.style.display = "block";
+      }
+      if (largePhoneQuery.matches && img.style.display === "block") {
+     const btn = document.querySelectorAll(".header");
+     btn.forEach((btn) => {
+      btn.style.display = "none";
+     })
+      }
+    };
+
+  const handleMouseLeave = () => {
+    console.log('HOVER LEAVE');
+    img.style.display = "none";
+    if (text) {
+      text.style.display = "none";
+    }
+    if (largePhoneQuery.matches) {
+      const btn = document.querySelectorAll(".header");
+     btn.forEach((btn) => {
+      btn.style.display = "block";
+     })
+    }
+  };
+
+    card.addEventListener("mouseenter", handleMouseEnter);
+    card.addEventListener("mouseleave", handleMouseLeave);
+  }
+
+
 // Generate product cards and attach button listeners
 products.forEach(product => {
   const card = document.createElement("div");
   card.className = "product-card";
+  card.style.position = "relative";
 
   const h2 = document.createElement("h2");
   h2.textContent = `${product.name} $${product.price}`;
@@ -242,25 +315,11 @@ products.forEach(product => {
   btn.textContent = "Add to cart";
   btn.className = "add-to-cart-btn";
 
-  // Attach event listener here
   btn.addEventListener("click", () => {
     cart.addItems(product);
-  
-    showButtonNotification(btn, "Added to cart");
+    showProductImage(product, btn);
   });
 
-function showButtonNotification (button, message) {
-const notification = document.createElement("div");
-notification.className = "button-notification";
-notification.textContent = message;
-button.appendChild(notification);
-
-setTimeout(() => notification.classList.add("show"), 100);
-setTimeout(() => {
-    notification.classList.remove('show');
-    setTimeout(() => notification.remove(), 300);
-  }, 2000);
-}
   card.appendChild(btn);
 
   const img = document.createElement("img");
@@ -269,24 +328,42 @@ setTimeout(() => {
   img.className = "product-hover-image";
   img.style.display = "none";
 
-  card.addEventListener("mouseenter", () => {
-    const rect = card.getBoundingClientRect();
-    img.style.display = "block";
-    img.style.position = "fixed";
-    img.style.top = `${rect.top + (rect.height / 2) - 200}px`; 
-    img.style.left = `${rect.right - 200}px`;
-  });
+  const text = document.createElement("figcaption");
+  text.className = "product-description";
+  text.id = product.name.toLowerCase().replace(/ /g, "-");
 
-  card.addEventListener("mouseleave", () => {
-    img.style.display = "none";
-  });
-
+  // Add the description text for each product
+ const descriptions = {
+  "shampoo-and-conditioner": "From rebalancing roots to gently hydrating lengths, Lumina Shampoo and Conditioner are specifically formulated to target multiple concerns. This dynamic duo cleanses without stripping natural oils while nourishing each strand for healthier, more manageable hair.",
   
-  card.appendChild(img);
+  "face-mask": "Salicylic Acid 2% Masque is a charcoal and clay-infused formula that targets lacklustre tone and uneven texture. This purifying treatment draws out impurities, minimizes the appearance of pores, and reveals a refreshed, radiant complexion.",
+  
+  "eye-cream": "A dewy, highly concentrated face serum for intensive care tailored to your specific skin concerns. This lightweight yet powerful formula targets fine lines, dark circles, and puffiness around the delicate eye area for a visibly brighter, more youthful appearance.",
+  
+  "daily-moisturizer": "A nourishing face moisturizer that targets your specific skin needs throughout the day. This balanced formula provides lasting hydration, protects against environmental stressors, and leaves skin feeling soft, smooth, and comfortable.",
+  
+  "nighttime-moisturizer": "Lightweight, oil-free lotion rehydrates skin and boosts moisture reserves while you sleep. This restorative night cream works overnight to replenish and repair, so you wake up with plump, refreshed, and rejuvenated skin.",
+  
+  "facial-cleanser": "A gentle yet effective face cleanser for your unique skin goals. This pH-balanced formula removes makeup, dirt, and excess oil without disrupting your skin's natural barrier, leaving your complexion clean, refreshed, and perfectly prepped for the rest of your routine."
+};
+
+  text.textContent = descriptions[text.id] || "";
+  text.style.display = "none";
+
+  // Store references
+  allHoverImages.push(img);
+  allHoverDescriptions.push(text);
+
+  // Setup hover listeners
+  setupHoverListeners(card, img, text);
 
   productCards.appendChild(card);
   productCards.appendChild(img);
+  if (text) {
+    productCards.appendChild(text);
+  }
 });
+
 
 clearCartBtn.addEventListener("click", () => cart.clearCart());
 
@@ -589,5 +666,7 @@ function closeCheckout() {
   surveyBtn.style.visibility = "visible";
 }
 }
+
+
 
 
