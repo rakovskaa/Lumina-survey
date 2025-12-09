@@ -44,12 +44,44 @@ navBtn.forEach((btn) => {
     hiddenText.classList.toggle("show");
     
     // Adjust position if it's now visible
-    if (hiddenText.classList.contains("show")) {
+     if (hiddenText.classList.contains("show")) {
       setTimeout(() => adjustHiddenTextPosition(hiddenText), 50);
     }
     
     console.log("Button clicked, hiddenText has show class:", hiddenText.classList.contains("show"));
-  });
+
+    const cartContainer = document.getElementById("cart-container");
+    const productsCardContainer = document.getElementById("products-card-container");
+    const surveyBtn = document.getElementById("open-form-btn");
+    
+    // Hide buttons when cart opens at 1024px
+    if (tabletQuery.matches) {
+      // If cart is open
+      if (cartContainer.classList.contains("show")) {
+        const buttons = document.querySelectorAll(".header");
+        buttons.forEach((button) => {
+          button.style.display = "none";
+        });
+        surveyBtn.style.display = "none";
+      } 
+      // If products card is open
+     else if (productsCardContainer.classList.contains("show")) {
+        const buttons = document.querySelectorAll(".header");
+        buttons.forEach((button) => {
+          button.style.display = "block";
+        });
+        surveyBtn.style.display = "none";
+      }
+      // If nothing is open
+      else {
+        const buttons = document.querySelectorAll(".header");
+        buttons.forEach((button) => {
+          button.style.display = "block";
+        });
+        surveyBtn.style.display = "block"; 
+  }
+}
+});
 });
 
 // Listen for window resize to readjust visible text
@@ -229,9 +261,9 @@ updateCartDOM() {
 // Create cart instance
 const cart = new ShoppingCart();
 
-/*const mobileQuery = window.matchMedia("(max-width: 480px)");
+const mobileQuery = window.matchMedia("(max-width: 480px)");
 const tabletQuery = window.matchMedia("(max-width: 1024px)");
-const tabletPortraitQuery = window.matchMedia("(max-width: 666px)");*/
+const tabletPortraitQuery = window.matchMedia("(max-width: 666px)");
 
 const largePhoneQuery = window.matchMedia("(max-width: 600px)");
 
@@ -366,6 +398,25 @@ products.forEach(product => {
 
 
 clearCartBtn.addEventListener("click", () => cart.clearCart());
+
+const closeCartBtn = document.getElementById("close-cart-btn");
+
+closeCartBtn.addEventListener("click", () => {
+  const cartContainer = document.getElementById("cart-container");
+  cartContainer.classList.remove("show");
+
+ // Restore nav buttons at 1024px when cart closes
+  if (tabletQuery.matches) {
+    const buttons = document.querySelectorAll(".header");
+    buttons.forEach((button) => {
+      button.style.display = "block";
+    });
+
+    // Also show survey button when cart closes
+    const surveyBtn = document.getElementById("open-form-btn");
+    surveyBtn.style.display = "block";
+  }
+});
 
 //checkout functionality//
 const checkOutBtn = document.getElementById("check-out-btn");
@@ -661,7 +712,9 @@ function processOrder() {
 }
 
 function closeCheckout() {
-  document.body.removeChild(overlay);
+  const overlay = document.getElementById("checkout-overlay");
+  if (overlay) document.body.removeChild(overlay);
+  
   const surveyBtn = document.getElementById("open-form-btn");
   surveyBtn.style.visibility = "visible";
 }
