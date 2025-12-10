@@ -397,6 +397,18 @@ products.forEach(product => {
 });
 
 
+const exitButtons = document.querySelectorAll(".exit-btn");
+
+exitButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+  const hiddenText = btn.closest(".hidden-text");
+  if (hiddenText) {
+    hiddenText.classList.remove("show");
+    surveyBtn.style.display = "block";
+  }
+})
+});
+
 clearCartBtn.addEventListener("click", () => cart.clearCart());
 
 const closeCartBtn = document.getElementById("close-cart-btn");
@@ -465,6 +477,14 @@ function showCheckoutForm() {
   `;
 
   document.body.appendChild(checkoutOverlay);
+
+ // Add mobile styles with JavaScript if on mobile
+  if (window.innerWidth <= 480) {
+    const form = document.getElementById('checkout-form');
+    form.style.width = '95%';
+    form.style.maxWidth = '400px';
+    form.style.padding = '15px';
+  }
 
   setupCheckoutListeners();
 }
@@ -717,6 +737,12 @@ function closeCheckout() {
   
   const surveyBtn = document.getElementById("open-form-btn");
   surveyBtn.style.visibility = "visible";
+
+  // Restore nav buttons
+  const navButtons = document.querySelectorAll(".header");
+  navButtons.forEach(btn => {
+    btn.style.display = "block";
+  });
 }
 }
 
