@@ -401,12 +401,22 @@ const exitButtons = document.querySelectorAll(".exit-btn");
 
 exitButtons.forEach(btn => {
   btn.addEventListener("click", () => {
-  const hiddenText = btn.closest(".hidden-text");
-  if (hiddenText) {
-    hiddenText.classList.remove("show");
-    surveyBtn.style.display = "block";
-  }
-})
+    const hiddenText = btn.closest(".hidden-text");
+    if (hiddenText) {
+      hiddenText.classList.remove("show");
+      
+      // Restore nav buttons at tablet/mobile sizes
+      if (tabletQuery.matches) {
+        const buttons = document.querySelectorAll(".header");
+        buttons.forEach((button) => {
+          button.style.display = "block";
+        });
+      }
+      
+      // Always show survey button
+      surveyBtn.style.display = "block";
+    }
+  });
 });
 
 clearCartBtn.addEventListener("click", () => cart.clearCart());
@@ -745,6 +755,11 @@ function closeCheckout() {
   });
 }
 }
+
+
+
+
+
 
 
 
