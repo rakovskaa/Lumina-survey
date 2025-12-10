@@ -1273,7 +1273,7 @@ transform: translateY(0);
     
     .product-hover-image {
         position: fixed !important;
-        top: 15% !important;
+        top: 80px !important;
         left: -40% !important;
         transform: translateX(0) !important;
         width: 230px !important;
@@ -1284,7 +1284,7 @@ transform: translateY(0);
 
     .product-description {
         position: fixed !important;
-        top: 15% !important;
+        top: 80px !important;
         left: 55% !important;
         transform: translateX(0) !important;
         width: 200px !important;
@@ -1325,7 +1325,7 @@ transform: translateY(0);
 @media (max-width: 530px) {
  .product-hover-image {
         position: fixed !important;
-        top: 15% !important;
+        top: 100px !important;
         left: -37% !important;
         transform: translateX(0) !important;
         width: 210px !important;
@@ -1336,7 +1336,7 @@ transform: translateY(0);
 
     .product-description {
         position: fixed !important;
-        top: 15% !important;
+        top: 100px !important;
         left: 52% !important;
         transform: translateX(0) !important;
         width: 200px !important;
@@ -1558,7 +1558,7 @@ transform: translateY(0);
 
     .product-hover-image {
         position: fixed !important;
-        top: -60% !important;
+        top: 90px !important;
         left: -13% !important;
         transform: translateX(0) !important;
         width: 175px !important;
@@ -1569,7 +1569,7 @@ transform: translateY(0);
 
     .product-description {
         position: fixed !important;
-        top: -60% !important;
+        top: 90px !important;
         left: 43% !important;
         transform: translateX(0) !important;
         width: 190px !important;
@@ -1586,7 +1586,7 @@ transform: translateY(0);
 @media (max-width: 400px) {
     .product-hover-image {
         position: fixed !important;
-        top: -51% !important;
+        top: 100px !important;
         left: -9.5% !important;
         transform: translateX(0) !important;
         width: 165px !important;
@@ -1597,7 +1597,7 @@ transform: translateY(0);
 
     .product-description {
         position: fixed !important;
-        top: -51% !important;
+        top: 100px !important;
         left: 43% !important;
         transform: translateX(0) !important;
         width: 180px !important;
@@ -1614,7 +1614,7 @@ transform: translateY(0);
 @media (max-width: 375px) {
     .product-hover-image {
         position: fixed !important;
-        top: -30% !important;
+        top: 110px !important;
         left: -6% !important;
         transform: translateX(0) !important;
         width: 145px !important;
@@ -1625,7 +1625,7 @@ transform: translateY(0);
 
     .product-description {
         position: fixed !important;
-        top: -30% !important;
+        top: 110px!important;
         left: 43% !important;
         transform: translateX(0) !important;
         width: 170px !important;
