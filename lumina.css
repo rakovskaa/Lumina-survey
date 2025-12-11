@@ -1549,10 +1549,10 @@ transform: translateY(0);
         gap: 9px;
     }
 
-     #products-card-container .exit-btn {
+   #products-card-container .exit-btn {
     position: absolute !important;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
     top: 2% !important;
     left: 2% !important;
     transform: none !important;  
